@@ -1,0 +1,13 @@
+import time
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)  #规定接口命名规则，是从上面数是2、4、6，下面数是1，3，5
+GPIO.setup(22,GPIO.OUT)
+try:
+   while True:
+      GPIO.output(22,GPIO.HIGH) #22指的是树莓派的第22号接口
+      time.sleep(0.5)
+      GPIO.output(22,GPIO.LOW)
+      time.sleep(0.5)
+except KeyboardInterrupt:
+    pass
+GPIO.cleanup()      
